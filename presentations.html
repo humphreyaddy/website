@@ -1,2 +1,141 @@
-<!-- UPDATED PRESENTATIONS.HTML -->
-<html><body><h1>Presentations Page Placeholder</h1></body></html>
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Presentations - Humphrey Precious Kwame Addy</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slides {
+            display: none;
+            position: relative;
+        }
+        .slides img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body class="no-sidebar is-preload">
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <div id="header">
+        <div class="inner">
+            <header>
+                <h1><a href="index.html" id="logo">Humphrey Precious Kwame Addy</a></h1>
+            </header>
+        </div>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li class="active"><a href="presentations.html">Presentations</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Slideshow -->
+    <div class="wrapper style1">
+        <div class="container">
+            <article id="main" class="special">
+                <header>
+                    <h2>Conference Presentations</h2>
+                    <p>Oral and poster presentations at scientific conferences</p>
+                </header>
+
+                <div class="slideshow-container">
+                    <div class="slides">
+                        <img src="images/pic10.jpg" alt="NMIMR Research Meeting 2023">
+                        <div class="caption">NMIMR Research Meeting 2023 – Oral presentation on ESBL-producing E. coli.</div>
+                    </div>
+                    <div class="slides">
+                        <img src="images/pic11.jpg" alt="COG-Train Virtual Seminar 2023">
+                        <div class="caption">COG-Train Virtual Seminar 2023 – Poster on Klebsiella AMR genomics.</div>
+                    </div>
+                    <div class="slides">
+                        <img src="images/pic12.jpg" alt="COHAS Day 2022">
+                        <div class="caption">COHAS Day 2022 – Antimicrobial susceptibility patterns study.</div>
+                    </div>
+                </div>
+
+                <section>
+                    <header><h3>2023</h3></header>
+                    <p><strong>Oral:</strong> "Prevalence and Molecular Characterization of ESBL-producing E. coli from Healthy Pigs"<br>
+                        Annual Research Conference, NMIMR, November 2023</p>
+                    <p><strong>Poster:</strong> "Genomic surveillance of AMR in Klebsiella pneumoniae"<br>
+                        Wellcome COG-Train Virtual Seminar, October 2023</p>
+                </section>
+
+                <section>
+                    <header><h3>2022</h3></header>
+                    <p><strong>Poster:</strong> "Antimicrobial susceptibility patterns of bacterial isolates"<br>
+                        COHAS Day, August 2022</p>
+                </section>
+
+                <section>
+                    <header><h3>2021</h3></header>
+                    <p><strong>Oral:</strong> "Adverse Childhood Experiences and Violent Behaviors"<br>
+                        Undergraduate thesis defense, September 2021</p>
+                </section>
+            </article>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+        <div class="container">
+            <section class="contact">
+                <header><h3>Contact</h3></header>
+                <p>Email: addy.p.humphrey@gmail.com</p>
+                <ul class="icons">
+                    <li><a href="https://orcid.org/0009-0000-3861-4671" class="icon brands fa-orcid"></a></li>
+                    <li><a href="https://x.com/humphrey_addy" class="icon brands fa-twitter"></a></li>
+                </ul>
+            </section>
+            <div class="copyright">
+                <ul class="menu">
+                    <li>&copy; Humphrey Precious Kwame Addy. All rights reserved.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let slideIndex = 0;
+    function showSlides() {
+        const slides = document.getElementsByClassName("slides");
+        for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
+        slideIndex++;
+        if (slideIndex > slides.length) slideIndex = 1;
+        slides[slideIndex-1].style.display = "block";
+        setTimeout(showSlides, 4000);
+    }
+    showSlides();
+</script>
+</body>
+</html>
