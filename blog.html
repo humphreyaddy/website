@@ -8,17 +8,23 @@
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     <style>
         .blog-post {
+            display: flex;
+            align-items: flex-start;
             margin-bottom: 40px;
             border-bottom: 1px solid #ddd;
             padding-bottom: 20px;
         }
         .blog-post img {
-            width: 100%;
+            width: 35%;
+            height: auto;
             border-radius: 8px;
-            margin-bottom: 15px;
+            margin-right: 20px;
+        }
+        .blog-text {
+            flex: 1;
         }
         .blog-meta {
-            font-size: 0.9em;
+            font-size: 0.85em;
             color: #777;
             margin-bottom: 10px;
         }
@@ -62,26 +68,32 @@
             <!-- Blog Posts -->
             <article class="blog-post">
                 <img src="images/pic10.jpg" alt="File Naming in Bioinformatics">
-                <h3><a href="#">The Importance of File Naming in Bioinformatics</a></h3>
-                <div class="blog-meta">Posted on July 29, 2025 | Tags: Workflow, Reproducibility</div>
-                <p>File naming conventions are critical in maintaining reproducibility and pipeline stability in bioinformatics projects. Here's how I automated file naming checks...</p>
-                <a href="#" class="button">Read More</a>
+                <div class="blog-text">
+                    <h3><a href="#">The Importance of File Naming in Bioinformatics</a></h3>
+                    <div class="blog-meta">Posted on July 29, 2025 | Tags: Workflow, Reproducibility</div>
+                    <p>File naming conventions are critical in maintaining reproducibility and pipeline stability in bioinformatics projects. Here's how I automated file naming checks...</p>
+                    <a href="#" class="button">Read More</a>
+                </div>
             </article>
 
             <article class="blog-post">
                 <img src="images/pic11.jpg" alt="Microbiome Visualization in R">
-                <h3><a href="#">Microbiome Visualization in R</a></h3>
-                <div class="blog-meta">Posted on August 10, 2025 | Tags: R, Visualization</div>
-                <p>Create publication-ready barplots, heatmaps, and ordinations for microbiome datasets using R packages like ggplot2 and phyloseq...</p>
-                <a href="#" class="button">Read More</a>
+                <div class="blog-text">
+                    <h3><a href="#">Microbiome Visualization in R</a></h3>
+                    <div class="blog-meta">Posted on August 10, 2025 | Tags: R, Visualization</div>
+                    <p>Create publication-ready barplots, heatmaps, and ordinations for microbiome datasets using R packages like ggplot2 and phyloseq...</p>
+                    <a href="#" class="button">Read More</a>
+                </div>
             </article>
 
             <article class="blog-post">
                 <img src="images/pic12.jpg" alt="Automating SRA Metadata Retrieval">
-                <h3><a href="#">Automating SRA Metadata Retrieval in Python</a></h3>
-                <div class="blog-meta">Posted on August 20, 2025 | Tags: Python, Metadata</div>
-                <p>Simplify the retrieval and cleanup of NCBI SRA metadata for high-throughput sequencing workflows using Python scripts...</p>
-                <a href="#" class="button">Read More</a>
+                <div class="blog-text">
+                    <h3><a href="#">Automating SRA Metadata Retrieval in Python</a></h3>
+                    <div class="blog-meta">Posted on August 20, 2025 | Tags: Python, Metadata</div>
+                    <p>Simplify the retrieval and cleanup of NCBI SRA metadata for high-throughput sequencing workflows using Python scripts...</p>
+                    <a href="#" class="button">Read More</a>
+                </div>
             </article>
         </div>
     </div>
@@ -90,9 +102,7 @@
     <div id="footer">
         <div class="container">
             <section class="contact">
-                <header>
-                    <h3>Connect With Me</h3>
-                </header>
+                <header><h3>Connect With Me</h3></header>
                 <ul class="icons">
                     <li><a href="https://orcid.org/0009-0000-3861-4671" class="icon brands fa-orcid"></a></li>
                     <li><a href="https://x.com/humphrey_addy" class="icon brands fa-twitter"></a></li>
@@ -101,13 +111,10 @@
                 </ul>
             </section>
             <div class="copyright">
-                <ul class="menu">
-                    <li>&copy; Humphrey Precious Kwame Addy. All rights reserved.</li>
-                </ul>
+                <ul class="menu"><li>&copy; Humphrey Precious Kwame Addy. All rights reserved.</li></ul>
             </div>
         </div>
     </div>
-
 </div>
 </body>
 </html>
