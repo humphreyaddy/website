@@ -4,71 +4,117 @@ Personal site for **Humphrey P. K. Addy** — bioinformatics researcher in Ghana
 
 Live: <https://humphreyaddy.github.io/website/>
 
-## Stack
+## Day-to-day editing
 
-- Plain static HTML / CSS / vanilla JS — no framework, no build step beyond a tiny
-  Python script that DRYs up the shared header/footer
-- Google Fonts: Fraunces (display serif) + Inter (body)
-- Deployed via GitHub Actions (`.github/workflows/static.yml`) — every push to `main` redeploys
+You change the **content** files, run **one command**, then `git push`. That's it.
 
-## Editing
+| What you want to change                | Edit                                              |
+|----------------------------------------|---------------------------------------------------|
+| Write a new blog post                  | New file in `content/posts/YYYY-MM-DD-slug.md`    |
+| Add a publication                      | `content/publications.json`                       |
+| Edit education / experience / skills   | `build_site.py` (top of file, plain Python lists) |
+| Tweak colours, fonts, spacing          | `assets/css/main.css`                             |
+| Edit interactivity (toggle, reveal…)   | `assets/js/main.js`                               |
 
-All page content lives in `build_site.py` as plain Python data structures. To
-change copy, edit the dict for the page (e.g. `EDUCATION`, `PUBLICATIONS`,
-`SKILLS`), then regenerate every page:
+Then build and deploy:
 
 ```bash
 python3 build_site.py
+git add -A
+git commit -m "post: <short title>"
+git push
 ```
 
-CSS is in `assets/css/main.css` (one file, ~12 KB). JS is in `assets/js/main.js`
-(one file, mobile menu + footer year).
+GitHub Pages redeploys in ~30 seconds.
+
+## Writing a blog post
+
+1. Copy the template:
+   ```bash
+   cp content/posts/_template.md content/posts/2026-01-15-my-new-post.md
+   ```
+2. Edit the frontmatter (title, date, tags, summary) and write the post in Markdown.
+3. Run `python3 build_site.py`.
+4. Your post appears at `/posts/my-new-post.html`, on the blog index, in the RSS feed, and in the sitemap.
+
+Markdown subset supported: headings (`#`..`######`), paragraphs, lists (`-`, `1.`),
+blockquotes (`>`), fenced code (` ``` `), horizontal rules (`---`), inline `code`,
+`**bold**`, `*italic*`, `[links](url)`, and `![images](url)`. Pure stdlib — no
+extra Python packages required.
 
 ## Adding a publication
 
-Open `build_site.py`, find the `PUBLICATIONS` list, prepend a new entry, then
-run `python3 build_site.py`. The new pub appears on `publications.html` and (if
-it is in the first two) on `index.html`.
+Open `content/publications.json` and prepend an entry:
 
-## Adding a CV PDF
+```json
+{
+  "year": 2026,
+  "venue": "Nature Microbiology",
+  "authors": "Addy, H.P.K. et al.",
+  "title": "Some great paper title.",
+  "doi": "10.1038/...",
+  "type": "Journal article",
+  "role": "Lead author"
+}
+```
 
-Drop `CV.pdf` at the repo root, then add a "Download CV" button to the hero in
-`build_site.py`:
+Run `python3 build_site.py`. The new entry appears on the publications page
+(grouped by year) and on the home page (if it's one of the two most recent).
+
+## Adding a CV
+
+Drop `CV.pdf` at the repo root and add a button to the hero in `build_site.py`:
 
 ```python
-'<a class="btn ghost" href="CV.pdf" download>Download CV</a>'
+'<a class="btn ghost" href="CV.pdf" download>Download CV <span class="arrow">↓</span></a>'
 ```
+
+## What's in the site
+
+**Pages**: home, about, research, publications (year-grouped), presentations,
+experience, skills, blog index + per-post pages, contact, custom 404.
+
+**Interactive features**:
+- Theme toggle (light / dark / auto with localStorage)
+- Reading-progress bar at the top of long pages
+- Subtle scroll-reveal animations (respects `prefers-reduced-motion`)
+- Back-to-top button
+- "Copy link" button on blog posts
+- Mobile slide-down navigation
+- Print stylesheet — `/about` and any page prints clean for CV use
+
+**SEO / discovery**:
+- Per-page `<title>`, description, canonical URL
+- Open Graph and Twitter card metadata + custom OG cover
+- Person JSON-LD structured data
+- `feed.xml` (RSS), `sitemap.xml`, `robots.txt`
 
 ## Layout
 
 ```
 .
-├── index.html              ← rendered
-├── about.html              ← rendered
-├── research.html           ← rendered
-├── publications.html       ← rendered
-├── presentations.html      ← rendered
-├── experience.html         ← rendered
-├── skills.html             ← rendered
-├── blog.html               ← rendered
-├── contact.html            ← rendered
-├── 404.html                ← rendered
-├── build_site.py           ← single source of truth
+├── index.html, about.html, ...           ← rendered (do not hand-edit)
+├── posts/<slug>.html                     ← rendered post pages
+├── feed.xml, sitemap.xml, robots.txt     ← rendered
+├── build_site.py                         ← single source: run after editing content
+├── content/
+│   ├── publications.json                 ← edit to add a paper
+│   └── posts/
+│       ├── _template.md                  ← template for new posts
+│       └── YYYY-MM-DD-slug.md            ← one file per post
 ├── assets/
 │   ├── css/main.css
 │   ├── js/main.js
 │   ├── favicon.svg
 │   └── img/
-│       ├── profile.jpg     ← 640×760
-│       ├── profile@2x.jpg  ← 1280×1519 (retina)
-│       └── og-cover.png    ← 1200×630 social card
-├── .github/workflows/
-│   └── static.yml          ← Pages deploy
-├── LICENSE.txt             ← MIT (code) · © Addy (content)
+│       ├── profile.jpg, profile@2x.jpg
+│       └── og-cover.png
+├── .github/workflows/static.yml          ← Pages deploy
+├── LICENSE.txt
 └── README.md
 ```
 
 ## License
 
-- Code: MIT (see `LICENSE.txt`)
-- Site content (text, images): © Humphrey P. K. Addy, all rights reserved.
+- Code (HTML, CSS, JS, build script): MIT — see `LICENSE.txt`
+- Site content (text, images, biography): © Humphrey P. K. Addy, all rights reserved.

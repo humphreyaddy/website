@@ -6,12 +6,14 @@
   <title>Humphrey P. K. Addy — Contact</title>
   <meta name="description" content="Contact details for Humphrey P. K. Addy: email, ORCID, social links, and affiliations." />
   <meta name="author" content="Humphrey P. K. Addy" />
-  <meta name="theme-color" content="#0a6b54" />
+  <meta name="theme-color" content="#0a6b54" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0e1216" media="(prefers-color-scheme: dark)" />
   <link rel="canonical" href="https://humphreyaddy.github.io/website/contact.html" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="alternate" type="application/rss+xml" title="Humphrey P. K. Addy — Blog" href="feed.xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" />
   <link rel="stylesheet" href="assets/css/main.css" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://humphreyaddy.github.io/website/contact.html" />
@@ -44,9 +46,18 @@
     ]
   }
   </script>
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem("hka-theme");
+        if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
 <header class="site-header">
   <div class="wrap nav">
     <a class="brand" href="index.html">
@@ -65,10 +76,16 @@
       <li><a href="blog.html">Blog</a></li>
       <li><a href="contact.html" aria-current="page">Contact</a></li>
     </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" type="button" aria-label="Toggle colour theme">
+        <svg class="icon-light" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4V2m0 20v-2m8-8h2M2 12h2m13.66 5.66 1.41 1.41M4.93 4.93l1.41 1.41m11.31 0 1.41-1.41M4.93 19.07l1.41-1.41M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+        <svg class="icon-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 <main id="main">
-<section class="wrap page-head">
+<section class="wrap page-head reveal">
   <p class="eyebrow">Contact</p>
   <h1>Let&rsquo;s talk.</h1>
   <p class="lede">Open to collaborations, mentorship, and conversation about microbiome / AMR research, bioinformatics teaching, or African genomic surveillance.</p>
@@ -76,7 +93,7 @@
 
 <section class="wrap section">
   <div class="contact-grid">
-    <article class="contact-card">
+    <article class="contact-card reveal">
       <h3>Direct</h3>
       <div class="row"><span class="k">Email</span><span class="v"><a href="mailto:addy.p.humphrey@gmail.com">addy.p.humphrey@gmail.com</a></span></div>
       <div class="row"><span class="k">ORCID</span><span class="v"><a href="https://orcid.org/0009-0000-3861-4671" target="_blank" rel="noopener">0009-0000-3861-4671</a></span></div>
@@ -85,7 +102,7 @@
       <div class="row"><span class="k">GitHub</span><span class="v"><a href="https://github.com/humphreyaddy" target="_blank" rel="noopener">@humphreyaddy</a></span></div>
     </article>
 
-    <article class="contact-card">
+    <article class="contact-card reveal">
       <h3>Affiliations</h3>
       <div class="row"><span class="k">KNUST</span><span class="v">Department of Biochemistry &amp; Biotechnology, Kumasi</span></div>
       <div class="row"><span class="k">UCC</span><span class="v">Department of Biomedical Sciences, Cape Coast</span></div>
@@ -93,9 +110,16 @@
   </div>
 </section>
 </main>
+<button class="to-top" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l8 8h-5v8h-6v-8H4z"/></svg>
+</button>
 <footer class="site-footer">
   <div class="wrap foot-row">
     <span>&copy; <span data-year>2026</span> Humphrey P. K. Addy. All rights reserved.</span>
+    <div class="meta-links">
+      <a href="feed.xml">RSS</a>
+      <a href="sitemap.xml">Sitemap</a>
+    </div>
     <div class="socials">
       <a href="https://orcid.org/0009-0000-3861-4671" rel="me noopener" target="_blank" aria-label="ORCID"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0z M7.4 19.4h-2V7.7h2v11.7zM6.4 5.6a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4zM10 7.7h4.6c4.4 0 6.3 3.1 6.3 5.9 0 3-2.4 5.9-6.3 5.9H10V7.7zm2 9.9h2.4c3.4 0 4.2-2.6 4.2-4.1 0-2.4-1.5-4-4.3-4H12v8.1z"/></svg></a><a href="https://www.linkedin.com/in/humphreyaddy" rel="me noopener" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM8.3 18.3H5.7V9.7h2.6v8.6zM7 8.6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm11.3 9.7h-2.6v-4.2c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2v4.3h-2.6V9.7h2.5v1.2h.1a2.7 2.7 0 0 1 2.5-1.4c2.6 0 3.1 1.7 3.1 4v4.8z"/></svg></a><a href="https://github.com/humphreyaddy" rel="me noopener" target="_blank" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5a10.5 10.5 0 0 0-3.3 20.4c.5.1.7-.2.7-.5v-2c-2.9.6-3.5-1.4-3.5-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.6.1-.6.1-.6 1 .1 1.6 1.1 1.6 1.1 1 1.6 2.5 1.2 3.1.9.1-.7.4-1.2.7-1.5-2.3-.3-4.7-1.2-4.7-5.1 0-1.1.4-2 1-2.8-.1-.3-.5-1.4.1-2.8 0 0 .9-.3 2.9 1.1a10 10 0 0 1 5.2 0c2-1.4 2.9-1.1 2.9-1.1.6 1.4.2 2.5.1 2.8.6.7 1 1.7 1 2.8 0 3.9-2.4 4.8-4.7 5.1.4.3.7.9.7 1.9V21.5c0 .3.2.6.7.5A10.5 10.5 0 0 0 12 1.5z"/></svg></a><a href="https://x.com/humphrey_addy" rel="me noopener" target="_blank" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2H21l-6.55 7.49L22 22h-6.83l-4.78-6.27L4.8 22H2.04l7.02-8.02L2 2h6.99l4.32 5.71L18.244 2zm-2.4 18h1.59L7.27 4H5.6l10.244 16z"/></svg></a>
     </div>

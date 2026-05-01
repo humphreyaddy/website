@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Humphrey P. K. Addy — Blog</title>
+    <link>https://humphreyaddy.github.io/website/blog.html</link>
+    <description>Notes on genomics, microbial ecology, and data-driven biology.</description>
+    <language>en</language>
+    <lastBuildDate>2026-05-01T20:29:51+00:00</lastBuildDate>
+    <item>
+      <title>Microbiome visualisation in R</title>
+      <link>https://humphreyaddy.github.io/website/posts/microbiome-visualisation-in-r.html</link>
+      <guid isPermaLink="true">https://humphreyaddy.github.io/website/posts/microbiome-visualisation-in-r.html</guid>
+      <pubDate>Sun, 10 Aug 2025 00:00:00 +0000</pubDate>
+      <description>Practical recipes for plotting microbiome data in R — stacked bars that don&#x27;t lie, ordinations that read at a glance, and tidy taxa wrangling.</description>
+    </item>
+    <item>
+      <title>The importance of file naming in bioinformatics</title>
+      <link>https://humphreyaddy.github.io/website/posts/importance-of-file-naming.html</link>
+      <guid isPermaLink="true">https://humphreyaddy.github.io/website/posts/importance-of-file-naming.html</guid>
+      <pubDate>Tue, 29 Jul 2025 00:00:00 +0000</pubDate>
+      <description>File-naming conventions are critical for reproducibility and pipeline stability. Here&#x27;s how I automated naming checks across a lab&#x27;s shared drives.</description>
+    </item>
+  </channel>
+</rss>
