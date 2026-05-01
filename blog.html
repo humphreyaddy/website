@@ -1,128 +1,92 @@
-<!DOCTYPE HTML>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <title>Blog - Humphrey P. K. Addy</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-    <style>
-        .blog-post {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 40px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 20px;
-        }
-        .blog-post img {
-            width: 35%;
-            height: auto;
-            border-radius: 8px;
-            margin-right: 20px;
-        }
-        .blog-text {
-            flex: 1;
-        }
-        .blog-meta {
-            font-size: 0.85em;
-            color: #777;
-            margin-bottom: 10px;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Humphrey P. K. Addy — Blog</title>
+  <meta name="description" content="Notes on genomics, microbial ecology, and data-driven biology." />
+  <meta name="author" content="Humphrey P. K. Addy" />
+  <meta name="theme-color" content="#0a6b54" />
+  <link rel="canonical" href="https://humphreyaddy.github.io/website/blog.html" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://humphreyaddy.github.io/website/blog.html" />
+  <meta property="og:title" content="Humphrey P. K. Addy — Blog" />
+  <meta property="og:description" content="Notes on genomics, microbial ecology, and data-driven biology." />
+  <meta property="og:image" content="https://humphreyaddy.github.io/website/assets/img/og-cover.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@humphrey_addy" />
+  <meta name="twitter:title" content="Humphrey P. K. Addy — Blog" />
+  <meta name="twitter:description" content="Notes on genomics, microbial ecology, and data-driven biology." />
+  <meta name="twitter:image" content="https://humphreyaddy.github.io/website/assets/img/og-cover.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Humphrey P. K. Addy",
+    "jobTitle": "Researcher in microbial genomics and bioinformatics",
+    "url": "https://humphreyaddy.github.io/website/",
+    "image": "https://humphreyaddy.github.io/website/assets/img/profile.jpg",
+    "email": "addy.p.humphrey@gmail.com",
+    "sameAs": [
+      "https://github.com/humphreyaddy",
+      "https://www.linkedin.com/in/humphreyaddy",
+      "https://x.com/humphrey_addy",
+      "https://orcid.org/0009-0000-3861-4671"
+    ],
+    "affiliation": [
+      { "@type": "EducationalOrganization", "name": "Kwame Nkrumah University of Science and Technology" },
+      { "@type": "EducationalOrganization", "name": "University of Cape Coast" }
+    ]
+  }
+  </script>
 </head>
-<body class="no-sidebar is-preload">
-<div id="page-wrapper">
-
-    <!-- Header -->
-    <div id="header">
-        <div class="inner">
-            <header>
-                <h1><a href="index.html" id="logo">Humphrey P. K. Addy</a></h1>
-                <hr />
-                <p>Bioinformatics | Genomics | Data Science</p>
-            </header>
-        </div>
-        <nav id="nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="publications.html">Publications</a></li>
-                <li><a href="presentations.html">Presentations</a></li>
-                <li><a href="experience.html">Experience</a></li>
-                <li><a href="skills.html">Skills</a></li>
-                <li><a href="blog.html" class="active">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
-
-    <!-- Blog Content -->
-    <div class="wrapper style1">
-        <div class="container">
-            <header>
-                <h2>Bioinformatics Blog</h2>
-                <p>Sharing insights on genomics, microbial ecology, and data-driven biology.</p>
-            </header>
-
-            <!-- Blog Posts -->
-            <article class="blog-post">
-                <img src="images/pic10.jpg" alt="File Naming in Bioinformatics">
-                <div class="blog-text">
-                    <h3><a href="#">The Importance of File Naming in Bioinformatics</a></h3>
-                    <div class="blog-meta">Posted on July 29, 2025 | Tags: Workflow, Reproducibility</div>
-                    <p>File naming conventions are critical in maintaining reproducibility and pipeline stability in bioinformatics projects. Here's how I automated file naming checks...</p>
-                    <a href="#" class="button">Read More</a>
-                </div>
-            </article>
-
-            <article class="blog-post">
-                <img src="images/pic11.jpg" alt="Microbiome Visualization in R">
-                <div class="blog-text">
-                    <h3><a href="#">Microbiome Visualization in R</a></h3>
-                    <div class="blog-meta">Posted on August 10, 2025 | Tags: R, Visualization</div>
-                    <p>Create publication-ready barplots, heatmaps, and ordinations for microbiome datasets using R packages like ggplot2 and phyloseq...</p>
-                    <a href="#" class="button">Read More</a>
-                </div>
-            </article>
-
-            <article class="blog-post">
-                <img src="images/pic12.jpg" alt="Automating SRA Metadata Retrieval">
-                <div class="blog-text">
-                    <h3><a href="#">Automating SRA Metadata Retrieval in Python</a></h3>
-                    <div class="blog-meta">Posted on August 20, 2025 | Tags: Python, Metadata</div>
-                    <p>Simplify the retrieval and cleanup of NCBI SRA metadata for high-throughput sequencing workflows using Python scripts...</p>
-                    <a href="#" class="button">Read More</a>
-                </div>
-            </article>
-        </div>
-    </div>
-    <!-- Footer -->
-    <div id="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <section class="contact">
-              <header>
-                <h3>Stay Connected</h3>
-              </header>
-              <ul class="icons">
-                <li><a href="https://orcid.org/0009-0000-3861-4671" class="icon brands fa-orcid"><span class="label">ORCID</span></a></li>
-                <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-                <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-                <li><a href="https://x.com/humphrey_addy" class="icon brands fa-x-twitter"><span class="label">X.com</span></a></li>
-              </ul>
-            </section>
-            <div class="copyright">
-              <ul class="menu">
-                <li>&copy; Humphrey P. K. Addy | All rights reserved.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <span class="mark">H</span>
+      <span>Humphrey&nbsp;P.&nbsp;K.&nbsp;Addy</span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <ul class="nav-links" id="primary-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="presentations.html">Talks</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="blog.html" aria-current="page">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
   </div>
+</header>
+<main id="main">
+<section class="wrap page-head">
+  <p class="eyebrow">Blog</p>
+  <h1>Notes &amp; how-tos.</h1>
+  <p class="lede">Sharing insights on genomics, microbial ecology, and data-driven biology &mdash; mostly written for students and early-career researchers.</p>
+</section>
+
+<section class="wrap section">
+  <div class="timeline"><article class="entry"><div class="when">2025-08-10</div><div class="what"><h3>Microbiome visualisation in R</h3><p class="sub">Tags: R, Visualisation</p><p>Practical recipes for plotting microbiome data in R: stacked bars that don&rsquo;t lie, ordinations that read at a glance, and tidy taxa wrangling.</p></div></article><article class="entry"><div class="when">2025-07-29</div><div class="what"><h3>The importance of file naming in bioinformatics</h3><p class="sub">Tags: Workflow, Reproducibility</p><p>File-naming conventions are critical for reproducibility and pipeline stability. Here&rsquo;s how I automated naming checks across a lab&rsquo;s shared drives.</p></div></article></div>
+  <p class="muted" style="margin-top:24px">More posts coming. Drafts in progress on AMR pipelines, single-cell QC, and reproducible reporting in Quarto.</p>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap foot-row">
+    <span>&copy; <span data-year>2026</span> Humphrey P. K. Addy. All rights reserved.</span>
+    <div class="socials">
+      <a href="https://orcid.org/0009-0000-3861-4671" rel="me noopener" target="_blank" aria-label="ORCID"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0z M7.4 19.4h-2V7.7h2v11.7zM6.4 5.6a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4zM10 7.7h4.6c4.4 0 6.3 3.1 6.3 5.9 0 3-2.4 5.9-6.3 5.9H10V7.7zm2 9.9h2.4c3.4 0 4.2-2.6 4.2-4.1 0-2.4-1.5-4-4.3-4H12v8.1z"/></svg></a><a href="https://www.linkedin.com/in/humphreyaddy" rel="me noopener" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM8.3 18.3H5.7V9.7h2.6v8.6zM7 8.6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm11.3 9.7h-2.6v-4.2c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2v4.3h-2.6V9.7h2.5v1.2h.1a2.7 2.7 0 0 1 2.5-1.4c2.6 0 3.1 1.7 3.1 4v4.8z"/></svg></a><a href="https://github.com/humphreyaddy" rel="me noopener" target="_blank" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5a10.5 10.5 0 0 0-3.3 20.4c.5.1.7-.2.7-.5v-2c-2.9.6-3.5-1.4-3.5-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.6.1-.6.1-.6 1 .1 1.6 1.1 1.6 1.1 1 1.6 2.5 1.2 3.1.9.1-.7.4-1.2.7-1.5-2.3-.3-4.7-1.2-4.7-5.1 0-1.1.4-2 1-2.8-.1-.3-.5-1.4.1-2.8 0 0 .9-.3 2.9 1.1a10 10 0 0 1 5.2 0c2-1.4 2.9-1.1 2.9-1.1.6 1.4.2 2.5.1 2.8.6.7 1 1.7 1 2.8 0 3.9-2.4 4.8-4.7 5.1.4.3.7.9.7 1.9V21.5c0 .3.2.6.7.5A10.5 10.5 0 0 0 12 1.5z"/></svg></a><a href="https://x.com/humphrey_addy" rel="me noopener" target="_blank" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2H21l-6.55 7.49L22 22h-6.83l-4.78-6.27L4.8 22H2.04l7.02-8.02L2 2h6.99l4.32 5.71L18.244 2zm-2.4 18h1.59L7.27 4H5.6l10.244 16z"/></svg></a>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>
