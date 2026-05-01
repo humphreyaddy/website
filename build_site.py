@@ -6,7 +6,7 @@ Run:
 What it does:
   - Reads blog posts from content/posts/*.md (Markdown subset, see md_to_html below).
   - Reads publications from content/publications.json.
-  - Renders every page (index, about, research, publications, presentations,
+  - Renders every page (index, about, research, publications, conferences,
     experience, skills, blog index, individual posts, contact, 404).
   - Writes feed.xml (RSS), sitemap.xml, robots.txt.
 
@@ -44,7 +44,7 @@ NAV = [
     ("about.html",         "About"),
     ("research.html",      "Research"),
     ("publications.html",  "Publications"),
-    ("presentations.html", "Talks"),
+    ("conferences.html",   "Conferences"),
     ("experience.html",    "Experience"),
     ("skills.html",        "Skills"),
     ("blog.html",          "Blog"),
@@ -108,17 +108,7 @@ PAST_RESEARCH = [
      "status": "Published"},
 ]
 
-PRESENTATIONS = [
-    ("2023", "Oral",
-     "&ldquo;ESBL-producing <em>E. coli</em> from healthy pigs&rdquo;",
-     "NMIMR Conference, Accra &middot; Nov 2023"),
-    ("2023", "Poster",
-     "&ldquo;Genomic AMR surveillance in <em>K. pneumoniae</em>&rdquo;",
-     "COG-Train Hackathon &middot; Oct 2023"),
-    ("2022", "Talk",
-     "Cape Coast One-Health Symposium",
-     "COHAS Day &middot; 2022"),
-]
+PHOTO_EXTS = {".jpg", ".jpeg", ".png", ".webp", ".avif"}
 
 EXPERIENCE_CURRENT = [
     {"when": "2023 — Present",
@@ -360,6 +350,27 @@ def load_publications() -> list[dict]:
     return pubs
 
 
+def load_conferences() -> list[dict]:
+    """Read content/conferences.json, then auto-discover photos from
+    assets/img/conferences/<slug>/.
+    """
+    src = CONTENT / "conferences.json"
+    if not src.exists():
+        return []
+    items = json.loads(src.read_text(encoding="utf-8"))
+    for c in items:
+        slug = c["slug"]
+        photo_dir = ROOT / "assets" / "img" / "conferences" / slug
+        photos = []
+        if photo_dir.is_dir():
+            for p in sorted(photo_dir.iterdir()):
+                if p.is_file() and p.suffix.lower() in PHOTO_EXTS and not p.name.startswith("."):
+                    photos.append(f"assets/img/conferences/{slug}/{p.name}")
+        c["photos"] = photos
+    items.sort(key=lambda c: (-int(c["year"]), c["name"]))
+    return items
+
+
 # =============================================================================
 # HTML chrome (head, header, footer)
 # =============================================================================
@@ -385,7 +396,7 @@ def head(title, description, page_path, *, og_image=None, article=False):
   <link rel="alternate" type="application/rss+xml" title="{NAME} — Blog" href="{rel}feed.xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" />
   <link rel="stylesheet" href="{rel}assets/css/main.css" />
   <meta property="og:type" content="{og_type}" />
   <meta property="og:url" content="{canon}" />
@@ -556,7 +567,7 @@ def format_date(iso):
 # pages
 # =============================================================================
 
-def page_index(posts, pubs):
+def page_index(posts, pubs, conferences):
     body = f"""<section class="wrap hero" aria-labelledby="hero-h">
   <div class="hero-text reveal">
     <p class="eyebrow">Researcher &middot; Bioinformatician &middot; Ghana</p>
@@ -578,7 +589,7 @@ def page_index(posts, pubs):
   <div class="stats">
     <div class="stat"><span class="num">{len(CURRENT_RESEARCH)+len(PAST_RESEARCH)}</span><span class="label">Research projects</span></div>
     <div class="stat"><span class="num">{len(pubs)}</span><span class="label">Publications</span></div>
-    <div class="stat"><span class="num">{len(PRESENTATIONS)}</span><span class="label">Talks &amp; posters</span></div>
+    <div class="stat"><span class="num">{len(conferences)}</span><span class="label">Conferences attended</span></div>
     <div class="stat"><span class="num">{len(posts)}</span><span class="label">Blog posts</span></div>
   </div>
 </section>
@@ -734,21 +745,66 @@ def page_publications(pubs):
     return render("publications.html", "Publications", "Peer-reviewed publications by Humphrey P. K. Addy.", body)
 
 
-def page_presentations():
-    rows = ''.join(
-        f"""<article class="entry reveal"><div class="when">{w}</div><div class="what"><h3>{kind}: {what}</h3><p class="sub">{venue}</p></div></article>"""
-        for (w, kind, what, venue) in PRESENTATIONS
+def _photo_block(c):
+    """Render the photo strip for one conference."""
+    photos = c.get("photos") or []
+    if not photos:
+        return '<p class="no-photos">Photos coming soon.</p>'
+    if len(photos) == 1:
+        p = photos[0]
+        return (f'<figure class="single-photo">'
+                f'<img src="{p}" alt="{html.escape(c["name"])} — photo" loading="lazy" />'
+                f'<figcaption>{html.escape(c["name"])} &middot; {html.escape(c.get("date") or str(c["year"]))}</figcaption>'
+                f'</figure>')
+    # 2+ photos → marquee with duplicated set for seamless loop
+    duration = max(20, len(photos) * 6)
+    items_once = "".join(
+        f'<figure>'
+        f'<img src="{p}" alt="{html.escape(c["name"])} — photo {i+1}" loading="lazy" />'
+        f'<figcaption>{html.escape(c["name"])} &middot; photo {i+1} of {len(photos)}</figcaption>'
+        f'</figure>'
+        for i, p in enumerate(photos)
     )
+    items_dup = "".join(
+        f'<figure aria-hidden="true">'
+        f'<img src="{p}" alt="" loading="lazy" />'
+        f'<figcaption>{html.escape(c["name"])} &middot; photo {i+1} of {len(photos)}</figcaption>'
+        f'</figure>'
+        for i, p in enumerate(photos)
+    )
+    return (f'<div class="marquee" role="group" aria-label="Photos from {html.escape(c["name"])}">'
+            f'<div class="marquee-track" style="--marquee-duration: {duration}s">'
+            f'{items_once}{items_dup}'
+            f'</div></div>')
+
+
+def page_conferences(conferences):
+    blocks = []
+    for c in conferences:
+        meta = " &middot; ".join(
+            x for x in [c.get("date") or str(c["year"]), c.get("location"), c.get("role")] if x
+        )
+        photo_html = _photo_block(c)
+        blocks.append(f"""<article class="conference reveal">
+  <header class="conference-header">
+    <h3>{html.escape(c['name'])}</h3>
+    <span class="meta">{meta}</span>
+  </header>
+  <p class="conference-desc">{c.get('description', '')}</p>
+  {photo_html}
+</article>""")
+
     body = f"""<section class="wrap page-head reveal">
-  <p class="eyebrow">Talks</p>
-  <h1>Conference presentations.</h1>
-  <p class="lede">Oral talks, posters, and workshops I&rsquo;ve given.</p>
+  <p class="eyebrow">Conferences</p>
+  <h1>Conferences I&rsquo;ve attended.</h1>
+  <p class="lede">Workshops, symposia, and meetings &mdash; with photos from each. Hover to pause the slideshow.</p>
 </section>
 
 <section class="wrap section">
-  <div class="timeline">{rows}</div>
+  {''.join(blocks) or '<p class="muted">No conferences listed yet.</p>'}
 </section>"""
-    return render("presentations.html", "Presentations", "Oral and poster presentations by Humphrey P. K. Addy.", body)
+    return render("conferences.html", "Conferences",
+                  "Conferences attended by Humphrey P. K. Addy, with photos.", body)
 
 
 def page_experience():
@@ -923,7 +979,7 @@ def write_feed(posts):
 def write_sitemap(posts):
     urls = [SITE_URL + p for p in [
         "", "about.html", "research.html", "publications.html",
-        "presentations.html", "experience.html", "skills.html",
+        "conferences.html", "experience.html", "skills.html",
         "blog.html", "contact.html",
     ]]
     urls += [SITE_URL + p["url"] for p in posts]
@@ -951,16 +1007,17 @@ def write_robots():
 def main():
     posts = load_posts()
     pubs = load_publications()
+    conferences = load_conferences()
 
     POSTS_OUT.mkdir(exist_ok=True)
 
     # main pages
     pages = {
-        "index.html":         page_index(posts, pubs),
+        "index.html":         page_index(posts, pubs, conferences),
         "about.html":         page_about(),
         "research.html":      page_research(),
         "publications.html":  page_publications(pubs),
-        "presentations.html": page_presentations(),
+        "conferences.html":   page_conferences(conferences),
         "experience.html":    page_experience(),
         "skills.html":        page_skills(),
         "blog.html":          page_blog(posts),
@@ -978,6 +1035,13 @@ def main():
         out = ROOT / "posts" / f"{post['slug']}.html"
         out.write_text(page_post(post, prev_post, next_post), encoding="utf-8")
         print(f"wrote posts/{post['slug']}.html ({out.stat().st_size:,} bytes)")
+
+    # remove stale top-level HTML pages that this build no longer produces
+    KNOWN_TOP_HTML = set(pages.keys())
+    for stale in ROOT.glob("*.html"):
+        if stale.name not in KNOWN_TOP_HTML:
+            print(f"removing stale {stale.name}")
+            stale.unlink()
 
     # remove stale post files (in case a .md was deleted)
     valid = {f"{p['slug']}.html" for p in posts}

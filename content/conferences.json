@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "nmimr-2023",
+    "name": "NMIMR Conference",
+    "year": 2023,
+    "date": "Nov 2023",
+    "location": "Accra, Ghana",
+    "role": "Oral presenter",
+    "description": "Oral talk: \"ESBL-producing E. coli from healthy pigs\"."
+  },
+  {
+    "slug": "cog-train-2023",
+    "name": "COG-Train Hackathon",
+    "year": 2023,
+    "date": "Oct 2023",
+    "location": "Online",
+    "role": "Poster presenter",
+    "description": "Poster: \"Genomic AMR surveillance in K. pneumoniae\"."
+  },
+  {
+    "slug": "cohas-2022",
+    "name": "COHAS Day — Cape Coast One-Health Symposium",
+    "year": 2022,
+    "date": "2022",
+    "location": "Cape Coast, Ghana",
+    "role": "Speaker",
+    "description": "Talk on One-Health perspectives at the Cape Coast symposium."
+  }
+]

@@ -8,13 +8,14 @@ Live: <https://humphreyaddy.github.io/website/>
 
 You change the **content** files, run **one command**, then `git push`. That's it.
 
-| What you want to change                | Edit                                              |
-|----------------------------------------|---------------------------------------------------|
-| Write a new blog post                  | New file in `content/posts/YYYY-MM-DD-slug.md`    |
-| Add a publication                      | `content/publications.json`                       |
-| Edit education / experience / skills   | `build_site.py` (top of file, plain Python lists) |
-| Tweak colours, fonts, spacing          | `assets/css/main.css`                             |
-| Edit interactivity (toggle, reveal…)   | `assets/js/main.js`                               |
+| What you want to change                | Edit                                                          |
+|----------------------------------------|---------------------------------------------------------------|
+| Write a new blog post                  | New file in `content/posts/YYYY-MM-DD-slug.md`                |
+| Add a publication                      | `content/publications.json`                                   |
+| Add a conference                       | `content/conferences.json` + drop photos in matching folder   |
+| Edit education / experience / skills   | `build_site.py` (top of file, plain Python lists)             |
+| Tweak colours, fonts, spacing          | `assets/css/main.css`                                         |
+| Edit interactivity (toggle, reveal…)   | `assets/js/main.js`                                           |
 
 Then build and deploy:
 
@@ -60,6 +61,34 @@ Open `content/publications.json` and prepend an entry:
 
 Run `python3 build_site.py`. The new entry appears on the publications page
 (grouped by year) and on the home page (if it's one of the two most recent).
+
+## Adding a conference (with photos)
+
+Each conference is one entry in `content/conferences.json`:
+
+```json
+{
+  "slug": "icabr-2026",
+  "name": "ICABR — International Conference on Applied Bioinformatics Research",
+  "year": 2026,
+  "date": "Mar 2026",
+  "location": "Nairobi, Kenya",
+  "role": "Poster presenter",
+  "description": "Poster: \"Pangenome analysis of Ghanaian K. pneumoniae\"."
+}
+```
+
+Then drop photos for that conference into:
+
+```
+assets/img/conferences/icabr-2026/
+```
+
+(create the folder using the slug from the JSON entry). Filenames sort alphabetically — prefix with `01_`, `02_` etc. if you care about order.
+
+Run `python3 build_site.py`. The conferences page rebuilds with a right-to-left sliding gallery for this entry. Hovering pauses the slideshow; one photo just shows as a still; zero photos shows "Photos coming soon".
+
+**Photo tips**: 1000–1500 px wide, under ~500 KB each. The build doesn't resize for you — bring them already optimised (the site is fast and you want it to stay that way).
 
 ## Adding a CV
 

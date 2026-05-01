@@ -85,17 +85,16 @@ img { max-width: 100%; height: auto; display: block; }
 ::selection { background: var(--accent-soft); color: var(--accent); }
 
 h1, h2, h3, h4 {
-  font-family: "Fraunces", "Iowan Old Style", "Palatino", Georgia, serif;
+  font-family: "EB Garamond", "Garamond", "Iowan Old Style", "Palatino", Georgia, serif;
   font-weight: 500;
-  font-variation-settings: "opsz" 144, "SOFT" 30;
-  letter-spacing: -0.018em;
+  letter-spacing: -0.012em;
   line-height: 1.12;
   color: var(--ink);
   margin: 0 0 0.5em;
 }
-h1 { font-size: clamp(2.4rem, 5vw, 4rem); font-variation-settings: "opsz" 144, "SOFT" 50, "wght" 480; }
-h2 { font-size: clamp(1.6rem, 2.8vw, 2.2rem); margin-top: 2.4em; }
-h3 { font-size: 1.22rem; margin-top: 1.6em; }
+h1 { font-size: clamp(2.6rem, 5.4vw, 4.4rem); font-weight: 500; letter-spacing: -0.018em; }
+h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); margin-top: 2.4em; }
+h3 { font-size: 1.28rem; margin-top: 1.6em; }
 
 p { margin: 0 0 1em; color: var(--ink-soft); }
 strong { color: var(--ink); font-weight: 600; }
@@ -156,7 +155,7 @@ a:hover { color: var(--accent-hot); text-decoration-color: currentColor; }
 }
 
 .brand {
-  font-family: "Fraunces", Georgia, serif;
+  font-family: "EB Garamond", "Garamond", Georgia, serif;
   font-weight: 600;
   font-size: 1.05rem;
   color: var(--ink);
@@ -172,7 +171,7 @@ a:hover { color: var(--accent-hot); text-decoration-color: currentColor; }
   color: var(--bg);
   display: inline-flex; align-items: center; justify-content: center;
   font-style: italic; font-weight: 700;
-  font-family: "Fraunces", Georgia, serif;
+  font-family: "EB Garamond", "Garamond", Georgia, serif;
   font-size: 18px;
   line-height: 1;
   transition: transform var(--t-fast);
@@ -352,11 +351,10 @@ a:hover { color: var(--accent-hot); text-decoration-color: currentColor; }
   border-radius: var(--radius);
 }
 .stat .num {
-  font-family: "Fraunces", Georgia, serif;
+  font-family: "EB Garamond", "Garamond", Georgia, serif;
   font-size: 2.2rem; font-weight: 500;
   color: var(--accent);
   line-height: 1;
-  font-variation-settings: "opsz" 144, "SOFT" 30;
 }
 .stat .label {
   display: block; margin-top: 6px;
@@ -433,9 +431,8 @@ a:hover { color: var(--accent-hot); text-decoration-color: currentColor; }
 .year-group { padding: 28px 0; border-top: 1px solid var(--line); }
 .year-group:first-child { border-top: 0; padding-top: 4px; }
 .year-group .year-label {
-  font-family: "Fraunces", Georgia, serif;
-  font-size: 1.6rem;
-  font-variation-settings: "opsz" 144, "SOFT" 50;
+  font-family: "EB Garamond", "Garamond", Georgia, serif;
+  font-size: 1.7rem;
   color: var(--accent);
   margin: 0 0 16px;
 }
@@ -489,10 +486,9 @@ a:hover { color: var(--accent-hot); text-decoration-color: currentColor; }
 }
 .post-card h3 {
   margin: 0 0 6px;
-  font-family: "Fraunces", Georgia, serif;
+  font-family: "EB Garamond", "Garamond", Georgia, serif;
   font-size: 1.4rem;
   font-weight: 500;
-  font-variation-settings: "opsz" 96, "SOFT" 50, "wght" 480;
   letter-spacing: -0.012em;
   color: var(--ink);
   transition: color var(--t-fast);
@@ -522,7 +518,7 @@ a:hover { color: var(--accent-hot); text-decoration-color: currentColor; }
   padding-bottom: 48px;
 }
 .article h2 { margin-top: 1.8em; margin-bottom: 0.5em; font-size: 1.7rem; }
-.article h3 { margin-top: 1.6em; margin-bottom: 0.4em; font-size: 1.25rem; font-family: "Fraunces", Georgia, serif; font-weight: 500; }
+.article h3 { margin-top: 1.6em; margin-bottom: 0.4em; font-size: 1.25rem; font-family: "EB Garamond", "Garamond", Georgia, serif; font-weight: 500; }
 .article p { color: var(--ink-soft); }
 .article ul, .article ol { padding-left: 1.4em; color: var(--ink-soft); margin: 0 0 1em; }
 .article li { margin-bottom: 0.4em; }
@@ -632,6 +628,109 @@ hr.rule { border: 0; border-top: 1px solid var(--line); margin: 48px 0; }
 /* 404 */
 .center-404 { display: grid; place-items: center; min-height: 60vh; text-align: center; padding: 40px 16px; }
 .center-404 h1 { font-size: clamp(3rem, 8vw, 6rem); margin: 0 0 8px; color: var(--accent); }
+
+/* conferences */
+.conference {
+  padding: 36px 0;
+  border-top: 1px solid var(--line);
+}
+.conference:first-child { border-top: 0; padding-top: 4px; }
+.conference-header {
+  display: flex; flex-wrap: wrap;
+  gap: 8px 24px; align-items: baseline;
+  margin: 0 0 6px;
+}
+.conference-header h3 {
+  margin: 0;
+  font-family: "EB Garamond", "Garamond", Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: -0.012em;
+}
+.conference-header .meta {
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+}
+.conference-desc { color: var(--ink-soft); margin: 0 0 18px; max-width: 60ch; }
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--marquee-duration, 32s) linear infinite;
+}
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+.marquee-track > * {
+  flex-shrink: 0;
+  margin-right: 16px;
+}
+.marquee figure {
+  margin: 0;
+  width: 320px;
+  background: var(--bg-warm);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--t-base);
+}
+.marquee figure:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.marquee img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  background: var(--bg-warm);
+}
+.marquee figcaption {
+  padding: 8px 14px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+}
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+.single-photo {
+  margin: 0;
+  max-width: 480px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.single-photo img { width: 100%; height: auto; display: block; }
+.single-photo figcaption {
+  padding: 8px 14px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+}
+.no-photos {
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-style: italic;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+            mask-image: none;
+  }
+  .marquee-track { animation: none; }
+  .marquee-track > [aria-hidden="true"] { display: none; }
+}
 
 /* scroll-reveal */
 .reveal {
