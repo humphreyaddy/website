@@ -4,6 +4,8 @@ Personal site for **Humphrey P. K. Addy** — bioinformatics researcher in Ghana
 
 Live: <https://humphreyaddy.github.io/website/>
 
+> **Owner: full management guide is in [`MANAGING.md`](MANAGING.md)** — recipes for adding posts, publications, conferences, photos, troubleshooting, and more.
+
 ## Day-to-day editing
 
 You change the **content** files, run **one command**, then `git push`. That's it.
